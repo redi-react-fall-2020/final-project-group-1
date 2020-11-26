@@ -60,7 +60,7 @@ const Cards = () => {
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
-          className={classes.restaurantImage}
+          /* className={classes.restaurantImage} */
           className={classes.media}
           image={kuruFasulye}
           title="Contemplative Reptile"
@@ -75,7 +75,7 @@ const Cards = () => {
             Restaurant Name
           </Typography>
           <Typography
-            variant="body2"
+            /* variant="body2" */
             color="textSecondary"
             variant="h5"
             component="h2"
