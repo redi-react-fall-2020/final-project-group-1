@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./Theme";
 import { GlobalStyles } from "./GlobalDarkLightMode";
 import { Text } from "./Text";
+import { RestaurantPage } from "./RestaurantPage";
 import "./App.css";
 
 import { Cards } from "./Cards";
@@ -24,16 +25,16 @@ function App() {
 
   return (
     <ThemeProvider theme={theme === "Light Mode" ? lightTheme : darkTheme}>
-      <Cards />
-
-      <Text />
-      <button
+      {/* <Cards /> */}
+      <RestaurantPage />
+      {/* <Text /> */}
+      {/* <button
         onClick={toggleTheme}
         theme={theme === "Light Mode" ? lightTheme : darkTheme}
       >
         {theme === "Light Mode" ? "Dark Mode" : "Light Mode"}
       </button>
-      <GlobalStyles />
+      <GlobalStyles /> */}
       {/* Pass the toggle functionality to the button */}
 
       <footer></footer>
