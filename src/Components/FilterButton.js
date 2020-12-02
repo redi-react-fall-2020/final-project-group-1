@@ -21,7 +21,7 @@ const FilterButton = ({setClearFilter, value, handleFilter})  => {
     }
     const classes = useStyles();
     return(
-        <Button className={classes.button} onClick={handleClick} variant= {clicked ? "outlined" : "contained"} >
+        <Button className={classes.button} onClick={handleClick} variant="outlined"  >
         {value}
       </Button>
     )

@@ -18,6 +18,8 @@ const useStyles = makeStyles((theme) => ({
     background: "#FFFFFF 0% 0% no-repeat padding-box",
     boxShadow: "0px 0.163 0.375rem #5D5D5D4B",
     borderRadius: "2.25rem 0px",
+    margin: "auto"
+    
   },
   media: {
     borderRadius: "2.25rem 0px 0px 0px;",
@@ -30,11 +32,11 @@ const useStyles = makeStyles((theme) => ({
   },
   restaurantName: {
     textAlign: "left",
-    font: "bold 2.125rem roboto",
+    font: "bold 1.7rem roboto",
   },
   restaurantAddress: {
     textAlign: "left",
-    font: "300 2.125rem roboto",
+    font: "300 1.5rem roboto",
   },
   chip: {
     background: "#FFBC5C",
@@ -46,14 +48,14 @@ const useStyles = makeStyles((theme) => ({
   },
   restaurantMoreInfo: {
     textAlign: "left",
-    font: "normal 300 26px/34px Roboto",
+    font: "normal 300 1.2rem Roboto",
     letterSpacing: "0px",
     color: "#81C2F6",
     textTransform: "capitalize",
   },
 }));
 
-const Cards = () => {
+const Cards = ({image, name, address, Open, Delivery, Pickup}) => {
   const classes = useStyles();
 
   return (
@@ -62,7 +64,7 @@ const Cards = () => {
         <CardMedia
           /* className={classes.restaurantImage} */
           className={classes.media}
-          image={kuruFasulye}
+          image={image}
           title="Contemplative Reptile"
         />
         <CardContent>
@@ -72,7 +74,7 @@ const Cards = () => {
             component="h2"
             className={classes.restaurantName}
           >
-            Restaurant Name
+            {name}
           </Typography>
           <Typography
             /* variant="body2" */
@@ -81,14 +83,15 @@ const Cards = () => {
             component="h2"
             className={classes.restaurantAddress}
           >
-            Restaurant Address
+            {address}
           </Typography>
         </CardContent>
       </CardActionArea>
       <div className={classes.chipContiner}>
-        <Chip label="Open" className={classes.chip} />
-        <Chip label="Vegan" className={classes.chip} />
-        <Chip label="Delivery" className={classes.chip} />
+       {Open && <Chip label="Open" className={classes.chip} />}
+       {!Open && <Chip label="Closed" className={classes.chip} />}
+       {Delivery && <Chip label="Delivery" className={classes.chip} />}
+       {Pickup && <Chip label="Pickup" className={classes.chip} />}
       </div>
       <CardActions>
         <Button
