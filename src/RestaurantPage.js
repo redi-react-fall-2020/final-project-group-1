@@ -1,13 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Chip, useMediaQuery } from "@material-ui/core";
-/* import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
-import ButtonBase from "@material-ui/core/ButtonBase"; */
-import pizza from "./img/pizza.jpg";
-import foodies from "./img/foodies.png";
-/* import useMediaQuery from "./useMediaQuery"; */
+import { Link } from "react-router-dom";
 import "./App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -26,17 +20,16 @@ const useStyles = makeStyles((theme) => ({
   pizzaImg: {
     margin: "auto",
     display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
+    height: "100vh",
   },
+
   gridContainer: {
+    height:"100vh",
     display: "grid",
     gridTemplateColumns: "30% 70%",
     /* gridTemplateRows: "67.625rem", */
-    gap: "0px 0px",
-    padding: "25vh 0",
-    width: "95vw",
-    maxWidth: "1500px",
+    
+    width: "100%",
     /* height: '60vh', */
     margin: "0 auto",
   },
@@ -51,9 +44,9 @@ const useStyles = makeStyles((theme) => ({
     background: "cover center",
   },
   innerGrid1: {
-    fontFamily: "trattatello",
+    fontFamily:"Niconne",
     position: "relative",
-    fontSize: "5vw",
+    
     color: "#FFBC5C",
     padding: "10% 0 0 15%",
   },
@@ -127,8 +120,8 @@ const useStyles = makeStyles((theme) => ({
     padding: "0 2%",
   },
   innerGrid1Max600Px: {
-    fontFamily: "trattatello",
-    fontSize: "8vw",
+    fontFamily:"Niconne",
+    
     color: "#FFBC5C",
     padding: "1% 15%",
   },
@@ -171,7 +164,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RestaurantPage = () => {
+const RestaurantPage = ({address, image, name, phone, email, Open, Delivery, Pickup}) => {
   const classes = useStyles();
   const matches = useMediaQuery("(min-width: 600px)");
 
@@ -181,31 +174,34 @@ const RestaurantPage = () => {
         <div className={classes.gridContainer}>
           <div className={classes.grid1}>
             <div className={classes.innerGrid1}>
-              {/* <img src={foodies} className={classes.restaurantLogo}></img> */}
-              Foodies
+            <Link to="/"  style={{color: "#FFBC5C", textDecoration: "none"} } >
+              <h1>Foodies</h1>
+              </Link>
             </div>
             <div className={classes.innerGrid2}>
               <div>
-                <h1 className={classes.h1}>Restaurant Name</h1>
-                <h2 className={classes.h2}>Restaurant Address</h2>
+      <h1 className={classes.h1}>{name}</h1>
+      <h2 className={classes.h2}>{address}</h2>
                 <p className={classes.p}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard dummy text ever since the 1500s, when an unknown
+                  {phone}<br/>
+                  {email}
                 </p>
 
                 <div>
                   {matches ? (
                     <div>
-                      <Chip label="Open" className={classes.chip} />
-                      <Chip label="Vegan" className={classes.chip} />
-                      <Chip label="Delivery" className={classes.chip} />
+                      
+                     {Open && <Chip label="Open" className={classes.chip} />}
+       {!Open && <Chip label="Closed" className={classes.chip} />}
+       {Delivery && <Chip label="Delivery" className={classes.chip} />}
+       {Pickup && <Chip label="Pickup" className={classes.chip} />}
                     </div>
                   ) : (
                     <div>
-                      <Chip label="Open" className={classes.chipMax600Px} />
-                      <Chip label="Vegan" className={classes.chipMax600Px} />
-                      <Chip label="Delivery" className={classes.chipMax600Px} />
+                     {Open && <Chip label="Open" className={classes.chip} />}
+       {!Open && <Chip label="Closed" className={classes.chip} />}
+       {Delivery && <Chip label="Delivery" className={classes.chip} />}
+       {Pickup && <Chip label="Pickup" className={classes.chip} />}
                     </div>
                   )}
                 </div>
@@ -213,26 +209,24 @@ const RestaurantPage = () => {
             </div>
           </div>
           <div className={classes.grid2}>
-            <img src={pizza} alt="pizza" className={classes.pizzaImg}></img>
+            <img src={image} alt="pizza" className={classes.pizzaImg}></img>
           </div>
-          {/* <div>{matches ? "Hello" : "World"}</div> */}
         </div>
       ) : (
         <div className={classes.gridContainerMax600Px}>
           <div className={classes.grid1Max600Px}>
             <div className={classes.innerGrid1Max600Px}>
-              {/* <img src={foodies} className={classes.restaurantLogo}></img> */}
+      
               Foodies
             </div>
             <div className={classes.innerGrid2Max600Px}>
               <div>
-                <h1 className={classes.h1Max600Px}>Restaurant Name</h1>
+      <h1 className={classes.h1Max600Px}>{name}</h1>
                 <p className={classes.pMax600Px}>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry’s
-                  standard dummy text ever since the 1500s, when an unknown
+                {phone}<br/>
+                  {email}
                 </p>
-                <h2 className={classes.h2Max600Px}>Restaurant Address</h2>
+      <h2 className={classes.h2Max600Px}>{address}</h2>
               </div>
               <div className={classes.ChipContainerMax600Px}>
                 <Chip label="Open" className={classes.chipMax600Px} />
@@ -242,7 +236,7 @@ const RestaurantPage = () => {
             </div>
           </div>
           <div className={classes.grid2Max600Px}>
-            <img src={pizza} alt="pizza" className={classes.pizzaImg}></img>
+            <img src={image} alt="pizza" className={classes.pizzaImg}></img>
           </div>
           {/* <div>{matches ? "Hello" : "World"}</div> */}
         </div>
