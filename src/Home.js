@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./GlobalDarkLightMode";
 import "./App.css";
 import { lightTheme, darkTheme } from "./Theme";
+import styled from 'styled-components'
 
 import LandingArea from "./Components/LandingArea";
 import FilterButton from "./Components/FilterButton";
@@ -51,7 +52,6 @@ function Home({result}) {
       "https://redi-final-restaurants.herokuapp.com/restaurants"
     );
     const data = await response.json();
-    console.log(data.results);
     return data.results;
   };
 
@@ -67,11 +67,8 @@ function Home({result}) {
   };
 
   useEffect(() => {
-    
       setRestaurants(result);
       setFilterdList(result);
-      console.log(filterdList);
-  
   }, []);
 
   useEffect(() => {
@@ -110,12 +107,15 @@ function Home({result}) {
         break;
     }
   };
+
+  const StyledLink = styled(Link)`
+  text-decoration: none;
+`
   const classes = useStyles();
 
   return (
     <ThemeProvider theme={theme === "Light Mode" ? lightTheme : darkTheme}>
       <div className="App">
-        {/* <RestaurantPage /> */}
         <LandingArea searchedName={searchedName} handleSearch={handleSearch} />
         <div className={classes.filterArea}>
           <h1 className={classes.filterHeader}>Restaurants near you</h1>
@@ -144,9 +144,9 @@ function Home({result}) {
         </div>
           <div className={classes.cardsGrid}> 
           {filterdList.map((restaurant) => (
-            <Link to={"/" + restaurant.id}  style={{textDecoration: "none"} } >
+            <StyledLink to={"/" + restaurant.id} >
               <Cards image= {restaurant.photos[0].links[0]}  name={restaurant.name} address={restaurant.formatted_address} Open={restaurant.opening_hours.open_now}  Delivery={restaurant.delivery} Pickup={restaurant.pickup}/>
-            </Link>
+            </StyledLink>
           ))}</div>
       </div>
     </ThemeProvider>
