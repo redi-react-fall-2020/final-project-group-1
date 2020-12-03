@@ -244,4 +244,4 @@ const RestaurantPage = ({address, image, name, phone, email, Open, Delivery, Pic
     </>
   );
 };
-export { RestaurantPage };
+export default RestaurantPage ;
