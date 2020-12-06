@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Chip, useMediaQuery } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./App.css";
-
+import {Map} from "./Map"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -164,7 +164,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RestaurantPage = ({address, image, name, phone, email, Open, Delivery, Pickup}) => {
+const RestaurantPage = ({address, image, name, phone, email, isOpen, delivery, pickup, lat, lng}) => {
   const classes = useStyles();
   const matches = useMediaQuery("(min-width: 600px)");
 
@@ -186,22 +186,22 @@ const RestaurantPage = ({address, image, name, phone, email, Open, Delivery, Pic
                   {phone}<br/>
                   {email}
                 </p>
-
                 <div>
                   {matches ? (
                     <div>
                       
-                     {Open && <Chip label="Open" className={classes.chip} />}
-       {!Open && <Chip label="Closed" className={classes.chip} />}
-       {Delivery && <Chip label="Delivery" className={classes.chip} />}
-       {Pickup && <Chip label="Pickup" className={classes.chip} />}
+                     {isOpen && <Chip label="Open" className={classes.chip} />}
+       {!isOpen && <Chip label="Closed" className={classes.chip} />}
+       {delivery && <Chip label="Delivery" className={classes.chip} />}
+       {pickup && <Chip label="Pickup" className={classes.chip} />}
+       <Map isMarkerShown lat={lat} lng={lng}/>
                     </div>
                   ) : (
                     <div>
-                     {Open && <Chip label="Open" className={classes.chip} />}
-       {!Open && <Chip label="Closed" className={classes.chip} />}
-       {Delivery && <Chip label="Delivery" className={classes.chip} />}
-       {Pickup && <Chip label="Pickup" className={classes.chip} />}
+                     {isOpen && <Chip label="isOpen" className={classes.chip} />}
+       {!isOpen && <Chip label="isClosed" className={classes.chip} />}
+       {delivery && <Chip label="delivery" className={classes.chip} />}
+       {pickup && <Chip label="pickup" className={classes.chip} />}
                     </div>
                   )}
                 </div>
@@ -238,7 +238,6 @@ const RestaurantPage = ({address, image, name, phone, email, Open, Delivery, Pic
           <div className={classes.grid2Max600Px}>
             <img src={image} alt="pizza" className={classes.pizzaImg}></img>
           </div>
-          {/* <div>{matches ? "Hello" : "World"}</div> */}
         </div>
       )}
     </>
