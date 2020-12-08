@@ -15,29 +15,31 @@ import { RestaurantPage } from "./RestaurantPage";
 import { Cards } from "./Cards";
 const useStyles = makeStyles((theme) => ({
   filterArea: {
-    margin: "auto",
-    width: "90%",
-    textAlign: "right",
-    marginTop: "2rem",
-    marginBottom: "2rem",
+    /* margin: "auto", */
+    width: "100%",
+    /* textAlign: "right", */
+    marginTop: "1em",
+    marginBottom: "1em",
+    paddingBottom: "1em",
     display: "flex",
-    justifyContent: "space-between",
+    justifyContent: "center",
+    alignItems: 'center',
+flexWrap: 'wrap',
     borderBottom: "1px solid #38415C",
-    paddingBottom: "1rem",
   },
   filterHeader: {
     fontWeight: "300",
     color: "#38415C",
-    margin: "0",
+    margin: "0 1em 0 0.5em",
   },
-  cardsGrid:{
+  cardsGrid: {
     display: "grid",
-    gridTemplateColumns: "30% 30% 30%",
-    gap:"3%",
-    width:"90%",
-    margin: "auto",
-    
-  }
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "1em",
+    padding: '1rem',
+    /* margin: "auto", */
+    /* width:"90%", */
+  },
 }));
 
 function Home({result}) {

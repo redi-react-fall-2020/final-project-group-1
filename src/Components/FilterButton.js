@@ -2,11 +2,11 @@ import React, {useState} from "react"
 import { Button, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-    button:{
-      marginRight:"1.4rem",
-      borderRadius: "21px",
-    }
-  }));
+  button: {
+    margin: "0.5em 1em 0 0",
+    borderRadius: "21px",
+  },
+}));
 const FilterButton = ({setClearFilter, value, handleFilter})  => {
     
     const [clicked, setClicked] = useState(true)

@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import kuruFasulye from "./img/kuruFasulye.jpg";
+
 
 import Chip from "@material-ui/core/Chip";
 
@@ -18,7 +18,10 @@ const useStyles = makeStyles((theme) => ({
     background: "#FFFFFF 0% 0% no-repeat padding-box",
     boxShadow: "0px 0.163 0.375rem #5D5D5D4B",
     borderRadius: "2.25rem 0px",
-    margin: "auto"
+    margin: "auto",
+    minHeight: '28em',
+maxHeight: '30em',
+height: '28em',
     
   },
   media: {
