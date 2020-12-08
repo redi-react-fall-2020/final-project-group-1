@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Cards = ({image, name, address, Open, Delivery, Pickup}) => {
+const Cards = ({image, name, address, isOpen, delivery, pickup}) => {
   const classes = useStyles();
 
   return (
@@ -88,10 +88,10 @@ const Cards = ({image, name, address, Open, Delivery, Pickup}) => {
         </CardContent>
       </CardActionArea>
       <div className={classes.chipContiner}>
-       {Open && <Chip label="Open" className={classes.chip} />}
-       {!Open && <Chip label="Closed" className={classes.chip} />}
-       {Delivery && <Chip label="Delivery" className={classes.chip} />}
-       {Pickup && <Chip label="Pickup" className={classes.chip} />}
+       {isOpen && <Chip label="Open" className={classes.chip} />}
+       {!isOpen && <Chip label="Closed" className={classes.chip} />}
+       {delivery && <Chip label="Delivery" className={classes.chip} />}
+       {pickup && <Chip label="Pickup" className={classes.chip} />}
       </div>
       <CardActions>
         <Button
