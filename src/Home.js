@@ -147,7 +147,7 @@ function Home({result}) {
           <div className={classes.cardsGrid}> 
           {filterdList.map((restaurant) => (
             <StyledLink to={"/" + restaurant.id} >
-              <Cards image= {restaurant.photos[0].links[0]}  name={restaurant.name} address={restaurant.formatted_address} Open={restaurant.opening_hours.open_now}  Delivery={restaurant.delivery} Pickup={restaurant.pickup}/>
+              <Cards image= {restaurant.photos[0].links[0]}  name={restaurant.name} address={restaurant.formatted_address} isOpen={restaurant.opening_hours.open_now}  delivery={restaurant.delivery} pickup={restaurant.pickup}/>
             </StyledLink>
           ))}</div>
       </div>

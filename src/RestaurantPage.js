@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Chip, useMediaQuery } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./App.css";
-
+import {Map} from "./Map"
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -180,21 +180,15 @@ const useStyles = makeStyles((theme) => ({
   }, */
 }));
 
-const RestaurantPage = ({
-  address,
-  image,
-  name,
-  phone,
-  email,
-  Open,
-  Delivery,
-  Pickup,
-}) => {
+
+const RestaurantPage = ({address, image, name, phone, email, isOpen, delivery, pickup, lat, lng}) => {
+
   const classes = useStyles();
   const matches = useMediaQuery("(min-width: 600px)");
 
   return (
     <>
+
       <div className={classes.gridContainer}>
         <div className={classes.grid1}>
           <div className={classes.innerGrid1}>
@@ -218,24 +212,17 @@ const RestaurantPage = ({
                   {!Open && <Chip label="Closed" className={classes.chip} />}
                   {Delivery && (
                     <Chip label="Delivery" className={classes.chip} />
+
                   )}
                   {Pickup && <Chip label="Pickup" className={classes.chip} />}
                 </div>
 
-                {/* <div>
-                  {Open && <Chip label="Open" className={classes.chip} />}
-                  {!Open && <Chip label="Closed" className={classes.chip} />}
-                  {Delivery && (
-                    <Chip label="Delivery" className={classes.chip} />
-                  )}
-                  {Pickup && <Chip label="Pickup" className={classes.chip} />}
-                </div> */}
+               
               </div>
             </div>
           </div>
         </div>
-        <div className={classes.grid2}>
-          <img src={image} alt="pizza" className={classes.pizzaImg}></img>
+
         </div>
       </div>
     </>

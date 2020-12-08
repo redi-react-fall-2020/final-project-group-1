@@ -25,7 +25,7 @@ function App() {
             <Route exact path="/" component={() => <Home result={restaurants} />}>
               </Route> 
             {restaurants.map((restaurant) => (
-              <Route  path={"/" + restaurant.id} component={() => <RestaurantPage address={restaurant.formatted_address} image= {restaurant.photos[0].links[0]} name={restaurant.name} phone={restaurant.social.phone} email={restaurant.social.email} address={restaurant.formatted_address} Open={restaurant.opening_hours.open_now}  Delivery={restaurant.delivery} Pickup={restaurant.pickup}/>}/>
+              <Route  path={"/" + restaurant.id} component={() => <RestaurantPage address={restaurant.formatted_address} image= {restaurant.photos[0].links[0]} name={restaurant.name} phone={restaurant.social.phone} email={restaurant.social.email} address={restaurant.formatted_address} isOpen={restaurant.opening_hours.open_now}  delivery={restaurant.delivery} pickup={restaurant.pickup} lat={restaurant.geometry.location.lat} lng={restaurant.geometry.location.lng}/>}/>
             ))}
           </Switch>
         </Router>
