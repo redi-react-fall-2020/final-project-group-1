@@ -72,39 +72,7 @@ const RestaurantPage = ({ address, image, name, phone, email, isOpen, delivery, 
       <Map  isMarkerShown lat={lat} lng={lng} />
       </div>
       <Footer />
-      {/* 
-      <div className={classes.gridContainer}>
-        <div className={classes.grid1}>
-          <div className={classes.innerGrid1}>
-            <Link to="/" style={{ color: "#FFBC5C", textDecoration: "none" }} >
-              <h1>Foodies</h1>
-            </Link>
-          </div>
-          <div className={classes.innerGrid2}>
-            <div>
-              <h1 className={classes.h1}>{name}</h1>
-              <h2 className={classes.h2}>{address}</h2>
-              <p className={classes.p}>
-                {phone}<br />
-                {email}
-              </p>
-              <div>
-                <div>
-
-                  {isOpen && <Chip label="Open" className={classes.chip} />}
-                  {!isOpen && <Chip label="Closed" className={classes.chip} />}
-                  {delivery && <Chip label="Delivery" className={classes.chip} />}
-                  {pickup && <Chip label="Pickup" className={classes.chip} />}
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={classes.grid2}>
-            <img src={image} alt="pizza" className={classes.pizzaImg}></img>
-          </div>
-      </div> */}
+    
     </>
   );
 };

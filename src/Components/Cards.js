@@ -23,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
     height: "13.56rem",
     width: "100%",
     background: "cover center",
-
-    // maxWidth: "29.56rem",
-    /* objectFit: "cover", */
   },
   restaurantName: {
     textAlign: "left",
@@ -39,9 +36,6 @@ const useStyles = makeStyles((theme) => ({
     background: "#FFBC5C",
     minWidth: "4rem",
     margin: "0 0.28rem",
-    /* "&:last-child": {
-      background: "orange",
-    }, */
   },
   restaurantMoreInfo: {
     textAlign: "left",
@@ -59,7 +53,7 @@ const Cards = ({image, name, address, isOpen, delivery, pickup}) => {
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
-          /* className={classes.restaurantImage} */
+          
           className={classes.media}
           image={image}
           title="Contemplative Reptile"
@@ -74,7 +68,7 @@ const Cards = ({image, name, address, isOpen, delivery, pickup}) => {
             {name}
           </Typography>
           <Typography
-            /* variant="body2" */
+      
             color="textSecondary"
             variant="h5"
             component="h2"
