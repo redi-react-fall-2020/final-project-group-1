@@ -2,13 +2,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-
-
 import Chip from "@material-ui/core/Chip";
 
 
@@ -19,10 +15,8 @@ const useStyles = makeStyles((theme) => ({
     boxShadow: "0px 0.163 0.375rem #5D5D5D4B",
     borderRadius: "2.25rem 0px",
     margin: "auto",
-    minHeight: '28em',
-maxHeight: '30em',
-height: '28em',
-    
+    paddingBottom:"2rem",
+    textAlign:"center"    
   },
   media: {
     borderRadius: "2.25rem 0px 0px 0px;",
@@ -96,15 +90,6 @@ const Cards = ({image, name, address, isOpen, delivery, pickup}) => {
        {delivery && <Chip label="Delivery" className={classes.chip} />}
        {pickup && <Chip label="Pickup" className={classes.chip} />}
       </div>
-      <CardActions>
-        <Button
-          className={classes.restaurantMoreInfo}
-          size="small"
-          color="primary"
-        >
-          More
-        </Button>
-      </CardActions>
     </Card>
   );
 };

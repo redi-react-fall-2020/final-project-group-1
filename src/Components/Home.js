@@ -3,43 +3,37 @@ import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
 import { ThemeProvider } from "styled-components";
 
-import { GlobalStyles } from "./GlobalDarkLightMode";
-import "./App.css";
-import { lightTheme, darkTheme } from "./Theme";
 import styled from 'styled-components'
 
-import LandingArea from "./Components/LandingArea";
-import FilterButton from "./Components/FilterButton";
-import { Text } from "./Text";
-import { RestaurantPage } from "./RestaurantPage";
+import LandingArea from "./LandingArea";
+import FilterButton from "./FilterButton";
 import { Cards } from "./Cards";
+
 const useStyles = makeStyles((theme) => ({
   filterArea: {
-    /* margin: "auto", */
-    width: "100%",
-    /* textAlign: "right", */
-    marginTop: "1em",
-    marginBottom: "1em",
-    paddingBottom: "1em",
+    margin: "auto",
+    width: "90%",
+    textAlign: "right",
+    marginTop: "2rem",
+    marginBottom: "2rem",
     display: "flex",
-    justifyContent: "center",
-    alignItems: 'center',
-flexWrap: 'wrap',
+    justifyContent: "space-between",
     borderBottom: "1px solid #38415C",
+    paddingBottom: "1rem",
   },
   filterHeader: {
     fontWeight: "300",
     color: "#38415C",
-    margin: "0 1em 0 0.5em",
+    margin: "0",
   },
-  cardsGrid: {
+  cardsGrid:{
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "1em",
-    padding: '1rem',
-    /* margin: "auto", */
-    /* width:"90%", */
-  },
+    gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))",
+    gap:"3%",
+    width:"90%",
+    margin: "auto",
+    
+  }
 }));
 
 function Home({result}) {
@@ -47,7 +41,6 @@ function Home({result}) {
   const [searchedName, setSearchedName] = useState();
   const [clearFilter, setClearFilter] = useState();
   const [filterdList, setFilterdList] = useState([]);
-  const [theme, setTheme] = useState("Light Mode");
 
   const getData = async () => {
     const response = await fetch(
@@ -55,17 +48,6 @@ function Home({result}) {
     );
     const data = await response.json();
     return data.results;
-  };
-
-  // The function that toggles between themes
-  const toggleTheme = () => {
-    // if the theme is not light, then set it to dark
-    if (theme === "Light Mode") {
-      setTheme("Dark Mode");
-      // otherwise, it should be light
-    } else {
-      setTheme("Light Mode");
-    }
   };
 
   useEffect(() => {
@@ -116,7 +98,7 @@ function Home({result}) {
   const classes = useStyles();
 
   return (
-    <ThemeProvider theme={theme === "Light Mode" ? lightTheme : darkTheme}>
+    <>
       <div className="App">
         <LandingArea searchedName={searchedName} handleSearch={handleSearch} />
         <div className={classes.filterArea}>
@@ -151,7 +133,7 @@ function Home({result}) {
             </StyledLink>
           ))}</div>
       </div>
-    </ThemeProvider>
+    </>
   );
 
   

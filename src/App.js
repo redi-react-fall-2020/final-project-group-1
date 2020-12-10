@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from "react-router-dom";
-import Home from "./Home"
-import RestaurantPage from "./RestaurantPage"
+import Home from "./Components/Home"
+import RestaurantPage from "./Components/RestaurantPage"
 function App() {
   const [restaurants, setRestaurants] = useState([]);
   
