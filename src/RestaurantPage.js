@@ -208,13 +208,13 @@ const RestaurantPage = ({address, image, name, phone, email, isOpen, delivery, p
 
               <div>
                 <div>
-                  {Open && <Chip label="Open" className={classes.chip} />}
-                  {!Open && <Chip label="Closed" className={classes.chip} />}
-                  {Delivery && (
+                  {isOpen && <Chip label="Open" className={classes.chip} />}
+                  {!isOpen && <Chip label="Closed" className={classes.chip} />}
+                  {delivery && (
                     <Chip label="Delivery" className={classes.chip} />
 
                   )}
-                  {Pickup && <Chip label="Pickup" className={classes.chip} />}
+                  {pickup && <Chip label="Pickup" className={classes.chip} />}
                 </div>
 
                
@@ -224,7 +224,6 @@ const RestaurantPage = ({address, image, name, phone, email, isOpen, delivery, p
         </div>
 
         </div>
-      </div>
     </>
   );
 };
